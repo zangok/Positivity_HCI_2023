@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.positivity_hci_2023"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -40,6 +40,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-livedata:2.6.2")
     //implementation("androidx.lifecycle:lifecycle-view-model-ktx:2.6.2")
+    //implementation("androidx.core:core-ktx:2.2.0")
     implementation("androidx.navigation:navigation-fragment:2.7.4")
     implementation("androidx.navigation:navigation-ui:2.7.4")
     testImplementation("junit:junit:4.13.2")
