@@ -3,7 +3,8 @@
     <item
         android:id="@+id/navigation_meetup"
         android:icon="@drawable/diversity_1_24px"
-        android:title="@string/title_meetup" />
+        android:title="@string/title_meetup"
+        android:background="@android:color/black" />
     <item
         android:id="@+id/navigation_resources"
         android:icon="@drawable/digital_wellbeing_24px"
