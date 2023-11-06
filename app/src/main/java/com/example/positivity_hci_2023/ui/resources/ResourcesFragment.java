@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.positivity_hci_2023.databinding.FragmentNotificationsBinding;
+import com.example.positivity_hci_2023.databinding.FragmentResourcesBinding;
 import com.example.positivity_hci_2023.ui.resources.ResourcesViewModel;
 
 public class ResourcesFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+    private FragmentResourcesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ResourcesViewModel notificationsViewModel =
                 new ViewModelProvider(this).get(ResourcesViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentResourcesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
+        final TextView textView = binding.textResources;
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

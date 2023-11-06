@@ -22,6 +22,7 @@
         app:layout_constraintVertical_bias="0.0"
         android:paddingBottom="8dp"
         android:layout_marginBottom="-8dp"/>
+
     <TextView
         android:id="@+id/text_notifications"
         android:layout_width="match_parent"
@@ -33,6 +34,8 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.664" />
 </androidx.constraintlayout.widget.ConstraintLayout>

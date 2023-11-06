@@ -10,7 +10,7 @@ public class MeetupViewModel extends ViewModel {
 
     public MeetupViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is Meetup");
     }
 
     public LiveData<String> getText() {

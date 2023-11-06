@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     >
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
@@ -35,6 +36,14 @@
         app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/mobile_navigation" />
 
+    <include
+        layout="@layout/fragment_title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
