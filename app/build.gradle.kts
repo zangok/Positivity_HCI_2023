@@ -39,7 +39,7 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-livedata:2.6.2")
-    //implementation("androidx.lifecycle:lifecycle-view-model-ktx:2.6.2")
+
     //implementation("androidx.core:core-ktx:2.2.0")
     implementation("androidx.navigation:navigation-fragment:2.7.4")
     implementation("androidx.navigation:navigation-ui:2.7.4")

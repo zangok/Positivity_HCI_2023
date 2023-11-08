@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
         getSupportActionBar().hide();
         getSupportActionBar().setTitle("Positivity");
-        Notifications a = new Notifications(this);
+        //Notifications a = new Notifications(this);
 
 
     }
