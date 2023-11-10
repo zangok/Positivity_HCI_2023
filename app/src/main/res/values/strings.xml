@@ -5,4 +5,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_meetup">Meetup</string>
     <string name="title_resources">Resources</string>
+    <string name="Wikipedia_Article">Wikipedia Smartphone Addiction</string>
+    <string name="SAMHSA_Helpline">Substance and Mental Health Services (SAMHSA)</string>
+    <string name="resources">Resources</string>
 </resources>
