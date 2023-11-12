@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.positivity_hci_2023"
-        minSdk = 26
+        minSdk = 22
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

@@ -25,6 +25,7 @@ public class ResourcesFragment extends Fragment {
         // Initialize the WebView
         WebView webView = binding.webviewResources;
         webView.getSettings().setJavaScriptEnabled(true); // Enable JavaScript if needed
+        webView.getSettings().setDomStorageEnabled(true);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
