@@ -12,8 +12,11 @@ import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
 
@@ -23,16 +26,27 @@ import androidx.core.app.NotificationManagerCompat;
 
 
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class Notifications {
+
     private String channelId = "my_channel_1";
-    private CharSequence channelName = "My Channel";
 
     public Notifications(Context context) {
+        // Execute totalScreenTime on a separate thread
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            long screenTime = totalScreenTime(context);
+
+            //new Handler(Looper.getMainLooper()).post(() -> showNotification(context, screenTime));
+        });
+    }
+
+    private void showNotification(Context context, long screenTime) {
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
 
         CharSequence textTitle = "Positivity";
-        long screenTime = totalScreenTime(context);
         long seconds = screenTime / 1000;
         long minutes = seconds / 60;
         long hours = minutes / 60;
@@ -63,19 +77,11 @@ public class Notifications {
 
         // Display notification
         if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             Log.d("Notifications", "Notifications: lacking permissions");
             return;
         }
         notificationManager.notify(0, builder.build());
     }
-
 
     private long totalScreenTime(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -95,14 +101,11 @@ public class Notifications {
         } else {
             return 0;
         }
-
     }
 
     private void requestUsageStatsPermission(Context context) {
         int REQUEST_USAGE_STATS = 1;
         Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-        startActivityForResult((Activity) context,intent, REQUEST_USAGE_STATS, new Bundle());
+        startActivityForResult((Activity) context, intent, REQUEST_USAGE_STATS, new Bundle());
     }
-
-
 }
