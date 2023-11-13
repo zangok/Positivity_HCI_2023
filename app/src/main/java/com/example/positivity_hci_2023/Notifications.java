@@ -34,7 +34,7 @@ public class Notifications {
     private String channelId = "my_channel_1";
 
     public Notifications(Context context) {
-        // Execute totalScreenTime on a separate thread
+        //Execute totalScreenTime on a separate thread
         Executor executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
             long screenTime = totalScreenTime(context);
@@ -62,12 +62,11 @@ public class Notifications {
             textContent = "You've been on your phone for " + formattedTime + "";
         }
 
-        // Clicking opens the app
         Intent intent = new Intent(context, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
 
-        // Create notification
+        //Create notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId)
                 .setSmallIcon(R.drawable.baseline_arrow_back_24)
                 .setContentTitle(textTitle)
@@ -75,7 +74,7 @@ public class Notifications {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentIntent(pendingIntent);
 
-        // Display notification
+        //Display notification
         if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             Log.d("Notifications", "Notifications: lacking permissions");
             return;
@@ -87,7 +86,7 @@ public class Notifications {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             UsageStatsManager usageStatsManager = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
 
-            long startTime = System.currentTimeMillis() - 1000 * 60 * 60 * 24; // Adjust the time frame as needed
+            long startTime = System.currentTimeMillis() - 1000 * 60 * 60 * 24; //currently 1 day
             long endTime = System.currentTimeMillis();
 
             List<UsageStats> stats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, startTime, endTime);
