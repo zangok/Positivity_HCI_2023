@@ -39,7 +39,7 @@ public class Notifications {
         executor.execute(() -> {
             long screenTime = totalScreenTime(context);
 
-            //new Handler(Looper.getMainLooper()).post(() -> showNotification(context, screenTime));
+            new Handler(Looper.getMainLooper()).post(() -> showNotification(context, screenTime));
         });
     }
 
