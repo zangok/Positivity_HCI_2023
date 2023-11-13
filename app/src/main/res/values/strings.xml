@@ -8,4 +8,6 @@
     <string name="Wikipedia_Article">Wikipedia Smartphone Addiction</string>
     <string name="SAMHSA_Helpline">Substance and Mental Health Services (SAMHSA)</string>
     <string name="resources">Resources</string>
+    <string name="profile_age">Age: %1$d</string>
+    <string name="map_description">Map showing user and positivity pals locations</string>
 </resources>

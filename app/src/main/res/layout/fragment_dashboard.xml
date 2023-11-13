@@ -8,48 +8,72 @@
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="8dp"
     tools:context=".ui.dashboard.DashboardFragment">
-    <!--Set layout_constraintBottom_toBottomOf to last element in this layout-->
+
+    <!-- Background View -->
     <View
         android:id="@+id/rectangleBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/rectangle_background"
-        app:layout_constraintBottom_toBottomOf="@+id/text_dashboard2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:paddingBottom="8dp"
-        android:layout_marginBottom="-8dp"/>
-
-    <TextView
-        android:id="@+id/text_dashboard2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.619" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="318dp"
-        android:layout_height="301dp"
-        android:layout_marginTop="20dp"
-        android:background="#CDC2C2"
-        android:contentDescription="Meet with others"
-        app:layout_constraintBottom_toTopOf="@+id/text_dashboard2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/rectangleBackground"
-        app:layout_constraintTop_toTopOf="@+id/rectangleBackground" />
+    <!-- Map Image -->
+    <ImageView
+        android:id="@+id/map_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/map_image"
+    android:contentDescription="@string/map_description"
+    android:scaleType="fitCenter"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Positivity Pal Markers -->
+    <ImageView
+        android:id="@+id/pal_marker_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_person_pin_24"
+    app:layout_constraintStart_toStartOf="@+id/map_image"
+    app:layout_constraintTop_toTopOf="@+id/map_image"
+    android:layout_marginStart="150dp"
+    android:layout_marginTop="150dp" />
+
+    <ImageView
+        android:id="@+id/pal_marker_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_person_pin_24"
+        app:layout_constraintStart_toStartOf="@+id/map_image"
+        app:layout_constraintTop_toTopOf="@+id/map_image"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="200dp" />
+
+    <ImageView
+        android:id="@+id/pal_marker_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_person_pin_24"
+        app:layout_constraintStart_toStartOf="@+id/map_image"
+        app:layout_constraintTop_toTopOf="@+id/map_image"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="250dp" />
+
+    <ImageView
+        android:id="@+id/pal_marker_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_person_pin_24"
+        app:layout_constraintStart_toStartOf="@+id/map_image"
+        app:layout_constraintTop_toTopOf="@+id/map_image"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="300dp" />
+
+    <!-- More markers can be added similarly with different margin values for positioning -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
