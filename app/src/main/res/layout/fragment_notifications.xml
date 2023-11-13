@@ -13,16 +13,55 @@
         android:id="@+id/rectangleBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="-8dp"
         android:background="@drawable/rectangle_background"
+        android:paddingBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/text_notifications"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:paddingBottom="8dp"
-        android:layout_marginBottom="-8dp"/>
+        app:layout_constraintVertical_bias="0.0" />
 
+    <CheckBox
+        android:id="@+id/checkBoxVibration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Vibration"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxSound"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rectangleBackground" />
+
+    <CheckBox
+        android:id="@+id/checkBoxSound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Sound"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rectangleBackground" />
+
+    <Button
+        android:id="@+id/btnGoToNotificationSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to Notification Settings"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSound" />
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Settings"
+        app:layout_constraintBottom_toTopOf="@+id/text_notifications"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rectangleBackground"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"/>
     <TextView
         android:id="@+id/text_notifications"
         android:layout_width="match_parent"
