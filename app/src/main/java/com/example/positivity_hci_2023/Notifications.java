@@ -4,12 +4,14 @@ package com.example.positivity_hci_2023;
 import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
@@ -47,6 +49,12 @@ public class Notifications {
     private void showNotification(Context context, long screenTime) {
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Create a notification channel for devices running Android Oreo or higher
+            NotificationChannel channel = new NotificationChannel("channel_id", "Channel Name", NotificationManager.IMPORTANCE_HIGH);
+            notificationManager.createNotificationChannel(channel);
+        }
+
         CharSequence textTitle = "Positivity";
         long seconds = screenTime / 1000;
         long minutes = seconds / 60;
@@ -81,6 +89,7 @@ public class Notifications {
             return;
         }
         notificationManager.notify(0, builder.build());
+        displayPopupNotification(context,textTitle,textContent,100);
     }
 
     private long totalScreenTime(Context context) {
@@ -95,6 +104,7 @@ public class Notifications {
             long totalScreenTime = 0;
 
             for (UsageStats usageStats : stats) {
+                Log.d("usage",usageStats.getPackageName());
                 totalScreenTime += usageStats.getTotalTimeInForeground();
             }
             return totalScreenTime;
@@ -102,7 +112,25 @@ public class Notifications {
             return 0;
         }
     }
+    public void displayPopupNotification(final Context context, final CharSequence title, final CharSequence message, int delay) {
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle(title)
+                        .setMessage(message)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // Handle OK button click
+                                dialog.dismiss(); // Close the dialog
+                            }
+                        });
 
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        }, delay);
+    }
     private void requestUsageStatsPermission(Context context) {
         int REQUEST_USAGE_STATS = 1;
         Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
