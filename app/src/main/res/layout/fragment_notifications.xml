@@ -21,7 +21,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <CheckBox
         android:id="@+id/checkBoxVibration"
@@ -41,17 +41,30 @@
         app:layout_constraintBottom_toTopOf="@+id/btnSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rectangleBackground" />
+        app:layout_constraintTop_toTopOf="@+id/rectangleBackground"
+        app:layout_constraintVertical_bias="0.376" />
+
+    <Button
+        android:id="@+id/buttonTimeNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test notification"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoToNotificationSettings"
+        app:layout_constraintEnd_toEndOf="@+id/rectangleBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSound" />
 
     <Button
         android:id="@+id/btnGoToNotificationSettings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="237dp"
+        android:layout_height="86dp"
         android:text="Advanced Notification Settings"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toTopOf="@+id/btnSave"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxSound" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSound"
+        app:layout_constraintVertical_bias="0.736" />
+
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"

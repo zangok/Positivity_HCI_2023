@@ -1,6 +1,7 @@
 package com.example.positivity_hci_2023.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,17 +27,16 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        Button button2 = root.findViewById(R.id.button2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Call your method when the button is clicked
-                Notifications notifications = new Notifications(root.getContext());
-            }
-        });
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.meetupText;
+
+        //homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        Log.d("home","home");
+        homeViewModel.getText().observe(getViewLifecycleOwner(), newText -> {
+            // Update your TextView in HomeFragment here using newText
+            Log.d("home","text updated");
+            textView.setText(newText);
+        });
         return root;
     }
 
@@ -45,4 +45,5 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 }
