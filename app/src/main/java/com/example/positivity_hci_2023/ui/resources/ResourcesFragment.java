@@ -37,13 +37,13 @@ public class ResourcesFragment extends Fragment {
         // Buttons to load the local HTML files
         Button buttonWikipedia = root.findViewById(R.id.buttonWikipedia);
         buttonWikipedia.setOnClickListener(v -> {
-            webView.loadUrl("file:///android_asset/problematic_smartphone_use_wikipedia.html");
+            webView.loadUrl("https://en.wikipedia.org/wiki/Problematic_smartphone_use");
             toggleWebViewVisibility(true);
         });
 
         Button buttonSamhsa = root.findViewById(R.id.buttonSamhsa);
         buttonSamhsa.setOnClickListener(v -> {
-            webView.loadUrl("file:///android_asset/samhsa_national_helpline.html");
+            webView.loadUrl("https://www.samhsa.gov/find-help/national-helpline");
             toggleWebViewVisibility(true);
         });
 

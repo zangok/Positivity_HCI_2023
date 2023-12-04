@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.positivity_hci_2023.Notifications;
+import com.example.positivity_hci_2023.PastMeetupViewModel;
 import com.example.positivity_hci_2023.R;
 import com.example.positivity_hci_2023.databinding.FragmentHomeBinding;
 
@@ -30,12 +31,11 @@ public class HomeFragment extends Fragment {
 
         final TextView textView = binding.meetupText;
 
-        //homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        Log.d("home","home");
-        homeViewModel.getText().observe(getViewLifecycleOwner(), newText -> {
-            // Update your TextView in HomeFragment here using newText
-            Log.d("home","text updated");
-            textView.setText(newText);
+        PastMeetupViewModel model = new ViewModelProvider(requireActivity()).get(PastMeetupViewModel.class);
+        model.getUiState().observe(getViewLifecycleOwner(), uiState -> {
+            // update UI
+            Log.d("home",uiState);
+            textView.setText(uiState);
         });
         return root;
     }
