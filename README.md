@@ -14,12 +14,12 @@ The following tools need to be installed to run the project:
 2.	Open the project in Android Studio
 3.	Connect Android device via USB to local machine
 4.	Turn on Developer Options on your Android device
-    a. Go to 'Settings'
-  	b. Select 'About Phone'
-  	c. Click 'Build Number' multiple times until Developer Options are enabled
+   - Go to 'Settings'
+   - Select 'About Phone'
+   - Click 'Build Number' multiple times until Developer Options are enabled
 6.	Turn on USB debugging on Android device
-    a. Go to 'Developer Options' and enable 'USB debugging'
-  	b. Select option on device to allow USB debugging
+-	Go to 'Developer Options' and enable 'USB debugging'
+-	Select option on device to allow USB debugging
 
 ## Running the UI
 1.	Build and run the project using Android Studio
